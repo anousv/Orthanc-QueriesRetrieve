@@ -281,7 +281,11 @@ public class VueRest extends JFrame implements PlugIn{
 
 		queryAET.setBorder(new EmptyBorder(0, 30, 0, 0));
 		if(tabAETs.length > 0){
-			queryAET.setSelectedIndex(jpreferPerso.getInt("SearchAET", 99));
+			if(jpreferPerso.getInt("SearchAET", 99) < tabAETs.length){
+				queryAET.setSelectedIndex(jpreferPerso.getInt("SearchAET", 99));
+			}else{
+				queryAET.setSelectedIndex(0);	
+			}
 		}
 		queryAET.addItemListener(new ItemListener() {
 			@Override
@@ -466,7 +470,11 @@ public class VueRest extends JFrame implements PlugIn{
 		queryAETH.setMinimumSize(new Dimension(200,20));
 		queryAETH.setMaximumSize(new Dimension(200,20));
 		if(tabAETsH.length > 0){
-			queryAETH.setSelectedIndex(jpreferPerso.getInt("HistoryAET", 0));
+			if(jpreferPerso.getInt("HistoryAET", 0) < tabAETsH.length){
+				queryAETH.setSelectedIndex(jpreferPerso.getInt("HistoryAET", 0));
+			}else{
+				queryAETH.setSelectedIndex(0);
+			}
 		}
 		queryAETH.addItemListener(new ItemListener() {
 			@Override
